@@ -6,7 +6,6 @@ update_mod:
 
 install:
 	env GO111MODULE=on go build -o ff ./cmd/branch/*.go
-	sudo mv ff /usr/local/bin/ff
 
 update:
 	go get -u all
