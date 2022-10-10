@@ -4,9 +4,6 @@ default:
 update_mod:
 	GO111MODULE=on go mod tidy
 
-install:
-	env GO111MODULE=on go build -o ff ./cmd/branch/*.go
-
 update:
 	go get -u all
 

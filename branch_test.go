@@ -7,7 +7,7 @@ import (
 func TestAnalyze(t *testing.T) {
 	br := Branch{"feature/Branch-semantico/master"}
 
-	if br.isFeature() == false {
+	if br.IsFeature() == false {
 		t.Errorf("Branch should be recognyzed as feature")
 	}
 
@@ -18,56 +18,56 @@ func TestAnalyze(t *testing.T) {
 
 func TestDetectIfBranchIsPatchOrNot(t *testing.T) {
 	br := Branch{"patch/Branch-semantico/master"}
-	if br.isPatch() == false {
+	if br.IsPatch() == false {
 		t.Errorf("Branch should be recognyzed as patch")
 	}
 }
 
 func TestDetectIfBranchIsNotAFeature(t *testing.T) {
 	br := Branch{"patch/Branch-semantico/master"}
-	if br.isFeature() == true {
+	if br.IsFeature() == true {
 		t.Errorf("Branch should not be recognyzed as feature")
 	}
 }
 
 func TestExtractCurrentBranch(t *testing.T) {
 	br := Branch{"1.0"}
-	if br.name != "1.0" {
+	if br.Name != "1.0" {
 		t.Errorf("Oops! Branch detection fails!")
 	}
 }
 
 func TestRefactoringBranchStartsWithRefactor(t *testing.T) {
 	br := Branch{"refactor/description/develop"}
-	if br.isRefactoring() == false {
+	if br.IsRefactoring() == false {
 		t.Errorf("Branch should be rafactorng but is not")
 	}
 }
 
 func TestHotfixBranchStartsWithHotfix(t *testing.T) {
 	br := Branch{"hotfix/description/develop"}
-	if br.isHotfix() == false {
+	if br.IsHotfix() == false {
 		t.Errorf("Branch should be hotfix but is not")
 	}
 }
 
 func TestBugfixBranchStartsWithBugfix(t *testing.T) {
 	br := Branch{"bugfix/description/develop"}
-	if br.isBugfix() == false {
+	if br.IsBugfix() == false {
 		t.Errorf("Branch should be bugfix but is not")
 	}
 }
 
 func TestDevelopmentBranchContains(t *testing.T) {
 	br := Branch{"master"}
-	if br.isDevelopment("master") == false {
+	if br.IsDevelopment("master") == false {
 		t.Errorf("Branch should be development but is not")
 	}
 }
 
 func TestReleaseBranchStartsWithRelease(t *testing.T) {
 	br := Branch{"release/foo/bar"}
-	if br.isRelease() == false {
+	if br.IsRelease() == false {
 		t.Errorf("Branch should be release but is not")
 	}
 }
