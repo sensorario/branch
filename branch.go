@@ -13,15 +13,15 @@ func (b Branch) destination() string {
 	return tokens[len(tokens)-1]
 }
 
-func (b Branch) isRefactoring() bool {
+func (b Branch) IsRefactoring() bool {
 	return strings.HasPrefix(b.name, "refactor/")
 }
 
-func (b Branch) isPatch() bool {
+func (b Branch) IsPatch() bool {
 	return strings.HasPrefix(b.name, "patch/")
 }
 
-func (b Branch) isFeature() bool {
+func (b Branch) IsFeature() bool {
 	featureBranches := []string{"feature", "feat"}
 	for _, v := range featureBranches {
 		if strings.HasPrefix(b.name, v) {
@@ -31,19 +31,19 @@ func (b Branch) isFeature() bool {
 	return false
 }
 
-func (b Branch) isHotfix() bool {
+func (b Branch) IsHotfix() bool {
 	return strings.HasPrefix(b.name, "hotfix/")
 }
 
-func (b Branch) isBugfix() bool {
+func (b Branch) IsBugfix() bool {
 	return strings.HasPrefix(b.name, "bugfix/")
 }
 
-func (b Branch) isDevelopment(DevBranchName string) bool {
+func (b Branch) IsDevelopment(DevBranchName string) bool {
 	return strings.HasPrefix(b.name, DevBranchName)
 }
 
-func (b Branch) isRelease() bool {
+func (b Branch) IsRelease() bool {
 	return strings.HasPrefix(b.name, "release/")
 }
 
