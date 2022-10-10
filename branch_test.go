@@ -74,21 +74,21 @@ func TestReleaseBranchStartsWithRelease(t *testing.T) {
 
 func TestExtractCommitPrefix(t *testing.T) {
 	br := Branch{"feature/foo/bar"}
-	if br.commitPrefix() != "feat: " {
+	if br.CommitPrefix() != "feat: " {
 		t.Errorf("commit prefix should start with 'feat: '")
 	}
 }
 
 func TestPrefixMustBeDifferentForFixes(t *testing.T) {
 	br := Branch{"bugfix/foo/bar"}
-	if br.commitPrefix() != "fix: " {
+	if br.CommitPrefix() != "fix: " {
 		t.Errorf("commit prefix should start with 'fix: '")
 	}
 }
 
 func TestPrefixMustBeDifferentForHotFixes(t *testing.T) {
 	br := Branch{"hotfix/foo/bar"}
-	if br.commitPrefix() != "fix: " {
+	if br.CommitPrefix() != "fix: " {
 		t.Errorf("commit prefix should start with 'fix: '")
 	}
 }

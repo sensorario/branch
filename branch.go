@@ -47,7 +47,7 @@ func (b Branch) IsRelease() bool {
 	return strings.HasPrefix(b.Name, "release/")
 }
 
-func (b Branch) commitPrefix() string {
+func (b Branch) CommitPrefix() string {
 	if b.IsBugfix() == true || b.IsHotfix() == true {
 		return "fix: "
 	}
