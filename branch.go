@@ -5,26 +5,26 @@ import (
 )
 
 type Branch struct {
-	name string
+	Name string
 }
 
 func (b Branch) destination() string {
-	tokens := strings.Split(b.name, "/")
+	tokens := strings.Split(b.Name, "/")
 	return tokens[len(tokens)-1]
 }
 
 func (b Branch) IsRefactoring() bool {
-	return strings.HasPrefix(b.name, "refactor/")
+	return strings.HasPrefix(b.Name, "refactor/")
 }
 
 func (b Branch) IsPatch() bool {
-	return strings.HasPrefix(b.name, "patch/")
+	return strings.HasPrefix(b.Name, "patch/")
 }
 
 func (b Branch) IsFeature() bool {
 	featureBranches := []string{"feature", "feat"}
 	for _, v := range featureBranches {
-		if strings.HasPrefix(b.name, v) {
+		if strings.HasPrefix(b.Name, v) {
 			return true
 		}
 	}
@@ -32,19 +32,19 @@ func (b Branch) IsFeature() bool {
 }
 
 func (b Branch) IsHotfix() bool {
-	return strings.HasPrefix(b.name, "hotfix/")
+	return strings.HasPrefix(b.Name, "hotfix/")
 }
 
 func (b Branch) IsBugfix() bool {
-	return strings.HasPrefix(b.name, "bugfix/")
+	return strings.HasPrefix(b.Name, "bugfix/")
 }
 
 func (b Branch) IsDevelopment(DevBranchName string) bool {
-	return strings.HasPrefix(b.name, DevBranchName)
+	return strings.HasPrefix(b.Name, DevBranchName)
 }
 
 func (b Branch) IsRelease() bool {
-	return strings.HasPrefix(b.name, "release/")
+	return strings.HasPrefix(b.Name, "release/")
 }
 
 func (b Branch) commitPrefix() string {
