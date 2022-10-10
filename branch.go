@@ -8,7 +8,7 @@ type Branch struct {
 	Name string
 }
 
-func (b Branch) destination() string {
+func (b Branch) Destination() string {
 	tokens := strings.Split(b.Name, "/")
 	return tokens[len(tokens)-1]
 }

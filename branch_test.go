@@ -11,7 +11,7 @@ func TestAnalyze(t *testing.T) {
 		t.Errorf("Branch should be recognyzed as feature")
 	}
 
-	if br.destination() != "master" {
+	if br.Destination() != "master" {
 		t.Errorf("destination Branch should be master")
 	}
 }
