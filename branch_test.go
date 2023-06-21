@@ -92,3 +92,17 @@ func TestPrefixMustBeDifferentForHotFixes(t *testing.T) {
 		t.Errorf("commit prefix should start with 'fix: '")
 	}
 }
+
+func TestCasualBranchCouseSomePrefix(t *testing.T) {
+	br := Branch{"aaaaa/bbbbb/cccc"}
+	if br.CommitPrefix() != "feat: " {
+		t.Errorf("commit prefix should start with 'feat: '")
+	}
+}
+
+func TestAlsoPatchMustHaveFixAsPrefix(t *testing.T) {
+	br := Branch{"patch/bbbbb/cccc"}
+	if br.CommitPrefix() != "fix: " {
+		t.Errorf("commit prefix should start with 'fix: '")
+	}
+}
